@@ -52,10 +52,16 @@ window.tinkerTool.views = (function( window, $, _, Backbone ) {
 			//	this.listenTo( this.model, 'change', this.render );
 				this.listenTo( this.model, 'change', this.update );
 
-				$('#notes').on( 'blur',  'textarea',       this.model.saveToLocalStorage );
-				$('#notes').on( 'click', 'button.save',    this.model.saveToLocalStorage );
-				$('#notes').on( 'focus', 'textarea',       this.model.loadFromLocalStorage );
-				$('#notes').on( 'click', 'button.refresh', this.model.loadFromLocalStorage );
+			//	No -- these pass 'this' as the element -- not the model.
+			//	$('#notes').on( 'blur',  'textarea',       this.model.saveToLocalStorage );
+			//	$('#notes').on( 'click', 'button.save',    this.model.saveToLocalStorage );
+			//	$('#notes').on( 'focus', 'textarea',       this.model.loadFromLocalStorage );
+			//	$('#notes').on( 'click', 'button.refresh', this.model.loadFromLocalStorage );
+
+				this.listenTo( this.$el.find('textarea'), 'blur',  this.model.saveToLocalStorage );
+				this.listenTo( this.$el.find('.save'),    'click', this.model.saveToLocalStorage );
+				this.listenTo( this.$el.find('textarea'), 'focus', this.model.loadFromLocalStorage );
+				this.listenTo( this.$el.find('.refresh'), 'click', this.model.loadFromLocalStorage );
 
 				return this;
 			}
