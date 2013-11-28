@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="utf-8" />
+	<title>TinkerTool</title>
+
+	<link rel="stylesheet" href="css/normalize.css" />
+	<link rel="stylesheet" href="css/styles.css" />
+
+	<script src="js/jquery-2.0.3.js"></script>
+	<script src="js/underscore.js"></script>
+	<script src="js/backbone.js"></script>
+
+</head>
+<body>
+
+	<header>
+		<h1>Sync Tester Stuff</h1>
+		<small>You are saving locally</small>
+	</header>
+
+	<section id="notes">
+
+	</section>
+
+	<script id="tinkerTool_template" type="text/html">
+		<article data-id="notes">
+			<textarea><%= notes %></textarea>
+			<button class="refresh">Refresh</button>
+			<button class="save">Save</button>
+		</article>
+	</script>
+
+	<script id="tinkerTool_notification" type="text/html">
+		<p class="<%= class_name %>"><small><%= text %></small></p>
+	</script>
+
+	<script src="js/scripts.models.js"></script>
+	<script src="js/scripts.views.js"></script>
+	<script src="js/scripts.js"></script>
+
+</body>
+</html>
