@@ -52,10 +52,10 @@ window.tinkerTool.views = (function( window, $, _, Backbone ) {
 			//	this.listenTo( this.model, 'change', this.render );
 				this.listenTo( this.model, 'change', this.update );
 
-			$('#notes').on( 'blur',  'textarea',       notes_model.saveToLocalStorage );
-			$('#notes').on( 'click', 'button.save',    notes_model.saveToLocalStorage );
-			$('#notes').on( 'focus', 'textarea',       notes_model.loadFromLocalStorage );
-			$('#notes').on( 'click', 'button.refresh', notes_model.loadFromLocalStorage );
+				$('#notes').on( 'blur',  'textarea',       this.model.saveToLocalStorage );
+				$('#notes').on( 'click', 'button.save',    this.model.saveToLocalStorage );
+				$('#notes').on( 'focus', 'textarea',       this.model.loadFromLocalStorage );
+				$('#notes').on( 'click', 'button.refresh', this.model.loadFromLocalStorage );
 
 				return this;
 			}
